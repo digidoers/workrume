@@ -69,6 +69,7 @@
                     <td>
                     <form onsubmit="return confirm('Are you sure?')" action="{{ route($routeName.'destroy',$user->id) }}" method="POST">
                     <a class="btn btn-info" title = "Edit" href="{{ route($routeName.'edit',$user->id) }}">Edit</a> 
+                    <a class="btn btn-info" title = "Show" href="{{ route($routeName.'show',$user->id) }}">Show</a> 
                     @csrf
                     @method('DELETE')      
                     <button type="submit" title = "Delete" class="btn btn-danger" >Delete</button>

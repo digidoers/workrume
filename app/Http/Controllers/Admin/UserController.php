@@ -23,6 +23,8 @@ class UserController extends Controller
             $breadCrumbs[] = ['name' => 'Create', 'url' =>  '', 'is_active'=> 1 ];
         elseif($param == 'edit')
             $breadCrumbs[] = ['name' => 'Edit', 'url' =>  '', 'is_active'=> 1 ];
+        elseif($param == 'show')
+            $breadCrumbs[] = ['name' => 'Show', 'url' =>  '', 'is_active'=> 1 ];
 
         return $breadCrumbs;
     }
@@ -35,6 +37,8 @@ class UserController extends Controller
             $pageName = "Create New User";
         elseif($param == 'edit')
             $pageName = "Edit This User";
+        elseif($param == 'show')
+            $pageName = "Show This User";
 
         return $pageName;
     }
@@ -97,7 +101,10 @@ class UserController extends Controller
 
     public function show(User $user)
     {
-        return "show";
+        $breadCrumbs = $this->getBreadCrumbs('show');
+        $pageName = $this->getPageName('show');
+        $routeName = $this->routeName;
+        return view($this->viewName.'show', compact('user','breadCrumbs','pageName', 'routeName'));
     }
 
     public function destroy(User $user, Request $request)
