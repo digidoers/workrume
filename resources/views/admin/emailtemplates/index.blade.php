@@ -53,8 +53,8 @@
                   <tr>
                     <td>{{$i++}}</td>
                     <td>{{$et->subject}}</td>
-                    <td>{{$et->params}}</td>
-                    <td>{{$et->template}}</td>
+                    <td>{!!$et->params!!}</td>
+                    <td>{!!$et->template!!}</td>
               
                     <td><a href="{{route($routeName.'status',$et->id)}}" title = "{{($et->status==1)?'Inactive':'Active'}}">@if($et->status==1)
                         Active 

@@ -63,8 +63,8 @@
                     <td>{{$i++}}</td>
                     <td>{{$job->role}} </td>
                    
-                    <td>{{$job->description}}</td>
-                    <td>{{$job->eligibility}}</td>
+                    <td>{!!$job->description!!}</td>
+                    <td>{!!$job->eligibility!!}</td>
                     <td>{{$job->skills}}</td>
                     
                     
