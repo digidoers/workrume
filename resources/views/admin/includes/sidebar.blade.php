@@ -150,6 +150,33 @@
               </p>
             </a> 
           </li>
+
+
+          <li class="nav-item has-treeview {{ (in_array(request()->route()->getName(), ['admin.topics.index', 'admin.topics.create']))?'menu-open':'' }}">
+            <a href="#" class="nav-link {{ (in_array(request()->route()->getName(), ['admin.topics.index', 'admin.topics.create']))?'active':'' }}">
+          <i class="nav-icon fas fa-envelope-open-text"></i>
+              
+              <p>
+               Topic
+                <i class="fas fa-angle-left right"></i>
+                <!-- <span class="badge badge-info right">6</span> -->
+              </p>
+            </a>
+            <ul class="nav nav-treeview {{ (in_array(request()->route()->getName(), ['admin.topics.index', 'admin.topics.create']))?'menu-open':'' }}" style="display:{{ (in_array(request()->route()->getName(), ['admin.topics.index','admin.topics.create']))?'block':'none' }};">
+              <li class="nav-item">
+                <a href="{{ route('admin.topics.index') }}" class="nav-link {{ (in_array(request()->route()->getName(), ['admin.topics.index']))?'active':'' }}">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Topic List</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="{{ route('admin.topics.create') }}" class="nav-link {{ (in_array(request()->route()->getName(), ['admin.topics.create']))?'active':'' }}">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Create New Topic</p>
+                </a>
+              </li>
+            </ul>
+          </li>
           </ul>
 
       </nav>

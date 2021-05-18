@@ -44,6 +44,11 @@ Route::middleware(['auth', 'is_admin'])->name('admin.')->prefix('admin')->namesp
 
     //Job Routes
     Route::resource("/jobs", "JobController");
+
+    //Topics Routes
+    Route::get("/topics/status/{topic}","TopicController@status")->name('topics.status');
+    Route::resource("/topics","TopicController");
+    
 });
 
 Route::name('admin.')->prefix('admin')->namespace('Admin')->group(function()

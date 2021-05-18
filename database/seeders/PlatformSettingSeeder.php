@@ -5,8 +5,6 @@ namespace Database\Seeders;
 use App\Models\PlatformSetting;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Str;
 
 class PlatformSettingSeeder extends Seeder
 {
