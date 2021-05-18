@@ -15,11 +15,11 @@ class UserSeeder extends Seeder
      */
     public function run()
     {
-        $ps = User::where('email', 'admin@gmail.com')->first();
+        $ps = User::where('email', 'admin@yopmail.com')->first();
         if (!$ps) {
             DB::table('users')->insert([
             'name' => 'Admin',
-            'email' => 'admin@gmail.com',
+            'email' => 'admin@yopmail.com',
             'password' => bcrypt('123456789'),
             'is_admin' => '1',
             'status' =>'1',
