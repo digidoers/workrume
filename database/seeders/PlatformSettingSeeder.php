@@ -18,11 +18,12 @@ class PlatformSettingSeeder extends Seeder
     {   
         
         $key_value = [
-            'name' => ['input_value'=> '', 'input_type' => 'text', 'label_name'=> 'Name', 'tab'=> 'Home'],
-            'first-name' => ['input_value'=> '', 'input_type' => 'text', 'label_name'=> 'First Name', 'tab'=> 'Home'],
-            'last-name' => ['input_value'=> ']', 'input_type' => 'text', 'label_name'=> 'Last Name', 'tab'=> 'Home'],
+            'fevicon' => ['input_value'=> '', 'input_type' => 'file', 'label_name'=> 'Fevicon', 'tab'=> 'Home'],
+            'Heading' => ['input_value'=> '', 'input_type' => 'text', 'label_name'=> 'Heading', 'tab'=> 'Home'],
+            'Footer Text' => ['input_value'=> ']', 'input_type' => 'text', 'label_name'=> 'Footer Text', 'tab'=> 'Home'],
             'facebook-link' => ['input_value'=> ']', 'input_type' => 'text', 'label_name'=> 'Facebook Link', 'tab'=> 'Social'],
             'google-link' => ['input_value'=> ']', 'input_type' => 'text', 'label_name'=> 'Google Link', 'tab'=> 'Social'],
+            'Address' => ['input_value'=> ']', 'input_type' => 'text', 'label_name'=> 'Address', 'tab'=> 'address'],
             
             
             ];
