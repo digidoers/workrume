@@ -21,7 +21,7 @@
         <div class="col-lg-12 margin-tb">
             
             <div class="pull-right">
-                <a class="btn btn-success ml-3" href="{{ route($routeName.'create') }}" > Create New Job</a>
+                <a class="btn btn-success ml-3" href="{{ route($routeName.'create') }}" > Create New Topic</a>
             </div>
             <br>
         </div>
@@ -47,31 +47,33 @@
                   <thead>
                   <tr>
                     <th>No.</th>
-                    <th>Role</th>
-                    <th>Description</th>
-                    <th>Eligibility</th>
-                    <th>Skills</th>
-                   
+                    <th>Name</th>
+                    
+                    <th>Status</th>
+                    
                     <th data-orderable="false">Action</th>
                   </tr>
                   </thead>
                   <tbody>
-                  @foreach ($job as $job)
+                  @foreach ($topic as $tp)
                 
                   
                   <tr>
                     <td>{{$i++}}</td>
-                    <td>{{$job->role}} </td>
+                    <td>{{$tp->name}} </td>
                    
-                    <td>{!!$job->description!!}</td>
-                    <td>{!!$job->eligibility!!}</td>
-                    <td>{{$job->skills}}</td>
                     
-                    
+                    <td><a href="{{ route($routeName.'status',$tp->id) }}" title = "{{($tp->status==1)?'Inactive':'Active'}}">@if($tp->status==1)
+                        Active 
+                       @else
+                      Inactive
+                    @endif
+                    </a>
+                    </td>
                   
                     <td>
-                    <form onsubmit="return confirm('Are you sure?')" action="{{ route($routeName.'destroy',$job->id) }}" method="POST">
-                    <a class="btn btn-info" title="Edit" href="{{ route($routeName.'edit',$job->id) }}">Edit</a> 
+                    <form onsubmit="return confirm('Are you sure?')" action="{{ route($routeName.'destroy',$tp->id) }}" method="POST">
+                    <a class="btn btn-info" title="Edit" href="{{ route($routeName.'edit',$tp->id) }}">Edit</a> 
                     @csrf
                     @method('DELETE')      
                     <button type="submit" class="btn btn-danger" title="Delete">Delete</button>

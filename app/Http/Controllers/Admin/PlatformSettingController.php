@@ -43,16 +43,20 @@ class PlatformSettingController extends Controller
     
     Public function edit()
     {
-        $website_setting = PlatformSetting::get();
+        $website_setting_home = PlatformSetting::where('tab','Home')->get();
+        $website_setting_address = PlatformSetting::where('tab','address')->get();
+        $website_setting_social= PlatformSetting::where('tab','Social')->get();
+        // dd($website_setting);
         $breadCrumbs = $this->getBreadCrumbs('index');
         $routeName = $this->routeName;
         $pageName = $this->getPageName('index');
-        return view($this->viewName.'edit', compact('website_setting', 'routeName','breadCrumbs','pageName'));
+        return view($this->viewName.'edit', compact('website_setting_home', 'routeName','breadCrumbs','pageName','website_setting_address','website_setting_social'));
     }
 
     public function update(Request $request)
     {
         $data = $request->all();
+        // dd($data);
         foreach($data['setting'] as $id => $values)
             {
                 PlatformSetting::where('id',$id)->update(['input_value'=>$values]);
