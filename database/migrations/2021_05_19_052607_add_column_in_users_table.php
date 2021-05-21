@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateNewTableUserTopic extends Migration
+class AddColumnInUsersTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,10 @@ class CreateNewTableUserTopic extends Migration
      */
     public function up()
     {
-        Schema::create('user_topics', function (Blueprint $table) {
-            $table->id();
-            $table->integer('user_id');
-            $table->timestamps();
+        Schema::table('users', function (Blueprint $table) {
+            $table->string('phone_no');
+            $table->string('user_role');
+            $table->string('country');
         });
     }
 
@@ -27,6 +27,8 @@ class CreateNewTableUserTopic extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('user_topics');
+        Schema::table('users', function (Blueprint $table) {
+            //
+        });
     }
 }

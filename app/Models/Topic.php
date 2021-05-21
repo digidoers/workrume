@@ -14,4 +14,9 @@ class Topic extends Model
         'status'
         
     ];
+
+    public function users()
+    {
+        return $this->belongsToMany(User::class);
+    }
 }

@@ -10,7 +10,7 @@
     <title>{{ config('app.name', 'Laravel') }}</title>
 
     <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}" defer></script>
+    <!-- <script src="{{ asset('js/app.js') }}" defer></script> -->
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -18,7 +18,15 @@
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
-
+    
+    
+    
+    <style type="text/css">
+        .dropdown-toggle{
+            height: 33.99px;
+            width: 346.39px !important;
+        }
+    </style>
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
@@ -35,8 +43,8 @@
                             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                                 <i class="fa fa-bars" aria-hidden="true"></i>
                             </button>
-                            <a href="#">Ragister</a>
-                            <a href="#">Login</a>
+                            <a href="{{ route('register') }}">Register</a>
+                            <a href="{{ route('login') }}">Login</a>
                         </div>
                     </div>
                 </div>
@@ -113,5 +121,7 @@
             </div>
         </footer>
     </div>
+
+    @yield('script')
 </body>
 </html>
