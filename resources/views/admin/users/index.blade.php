@@ -44,6 +44,9 @@
                     <th>Name</th>
                     <th>Email</th>
                     <th>Status</th>
+                    <th>Role</th>
+                    <th>Country</th>
+                    <th>Phone No</th>
                     <!-- <th>Date of Birth</th> -->
                     <th data-orderable="false">Action</th>
                   </tr>
@@ -64,6 +67,9 @@
                     @endif
                     </a>
                     </td>
+                    <td>{{$user->user_role}}</td>
+                    <td>{{$user->country}}</td>
+                    <td>{{$user->phone_no}}</td>
                     <!-- <td>{{$user->dob}} </td> -->
  
                     <td>

@@ -28,7 +28,7 @@
     <div class="row">
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
-            <label>Name:</label>
+            <label class="ml-3">Name:</label>
                 {{ $user->name }}
             </div>
         </div>
@@ -36,7 +36,7 @@
         <div class="row">
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
-                <label class="ml-2">Email:</label>
+                <label class="ml-4">Email:</label>
                {{ $user->email }}
             </div>
         </div>
@@ -45,7 +45,7 @@
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
                 <!-- <strong>Status:</strong> -->
-                <label class="ml-2">Status:</label>
+                <label class="ml-4">Status:</label>
                 <a href="{{ route($routeName.'status',$user->id) }}" title = "{{($user->status==1)?'Inactive':'Active'}}">@if($user->status==1)
                         Active 
                        @else
@@ -56,7 +56,40 @@
         </div>
     </div>
 
-    <div class="pull-right">
+    <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="form-group">
+                <label class="ml-4">DOB:</label>
+               {{ $user->dob }}
+            </div>
+        </div>
+
+        <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="form-group">
+                <label class="ml-4">Phone No.:</label>
+               {{ $user->phone_no }}
+            </div>
+        </div>
+
+
+        <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="form-group">
+                <label class="ml-4">User Role:</label>
+               {{ $user->user_role }}
+            </div>
+        </div>
+
+        <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="form-group">
+                <label class="ml-5">Country:</label>
+               {{ $user->country }}
+            </div>
+        </div>
+
+    <div class="pull-right ml-5">
                 <a class="btn btn-primary" href="{{route($routeName.'index') }}"> Back</a>
             <br>
             </div>

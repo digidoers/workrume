@@ -69,10 +69,17 @@ class UserController extends Controller
             'password' => 'min:6|max:20',
             'password_confirmation' =>'required_with:password|same:password|min:6|max:20',
             'dob' => 'required',
+            'phone_no' => 'required|integer|min:10',
+            'user_role' => 'required',
+            'country' => 'required'
         ]);
-        
+       
+       
         $data = $request->all();
-        User::create($data);
+        $interest = $data['interest'] ;
+       
+        $user = User::create($data);
+        $user->topic()->sync($interest);
         $request->session()->flash('alert-success', trans('admin_message.create',['name'=>'User']));
         return redirect()->route($this->routeName.'index')->with('message', 'IT WORKS!');;
                         
@@ -92,15 +99,21 @@ class UserController extends Controller
             'name' => 'required|min:2|max:50',
             'email' => 'required|email|unique:users,email,'.$user->id,
             'dob' => 'required',
+            'phone_no' => 'required|integer|min:10',
+            'user_role' => 'required',
+            'country' => 'required'
         ]);
         $data = $request->all();
+        $interest = $data['interest'] ;
         $user->update($data);
+        $user->topic()->sync($interest);
         $request->session()->flash('alert-success', trans('admin_message.update',['name'=>'User']));
         return redirect()->route($this->routeName.'index');
     }
 
     public function show(User $user)
     {
+        dd($user);
         $breadCrumbs = $this->getBreadCrumbs('show');
         $pageName = $this->getPageName('show');
         $routeName = $this->routeName;
