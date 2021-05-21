@@ -24,6 +24,9 @@ class UserSeeder extends Seeder
             'is_admin' => '1',
             'status' =>'1',
             'dob' => '12/12/2000',
+            'phone_no' => '7788996564',
+            'user_role' => 'Admin',
+            'country' => 'India'
             ]);
         }
     }
