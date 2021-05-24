@@ -89,6 +89,18 @@
             </div>
         </div>
 
+        <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="form-group">
+
+                <label class="ml-5">Interest:</label>
+                @foreach($user->topic as $tp)
+               {{ $tp->name }}
+               @endforeach
+            </div>
+        </div>
+
+
     <div class="pull-right ml-5">
                 <a class="btn btn-primary" href="{{route($routeName.'index') }}"> Back</a>
             <br>

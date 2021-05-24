@@ -112,8 +112,12 @@ class UserController extends Controller
     }
 
     public function show(User $user)
-    {
-        dd($user);
+    {           
+       
+        // $user = User::with('topic')->first();
+        // dd($user);  
+        $int = $user->topic;
+        // dd($user->toArray());
         $breadCrumbs = $this->getBreadCrumbs('show');
         $pageName = $this->getPageName('show');
         $routeName = $this->routeName;

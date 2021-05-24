@@ -111,7 +111,7 @@
                     <div class="custom-error">{{ $message }}</div>
                     @enderror
                            
-                    </div>
+                  </div>
 
                     <div class="form-group">
                     <label class = "require-input">Interest</label>
