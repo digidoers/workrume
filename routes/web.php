@@ -11,9 +11,12 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/dashboard', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/workrume', [App\Http\Controllers\HomeController::class, 'show'])->name('homepage');
+// Route::resource("/dashboard","UserController");
 
+Route::get("/update-profile", "UserController@updateProfile")->name('update-profile.edit');
+Route::put("/update-profile", "UserController@update")->name('update-profile.update');
 
 
 Route::middleware(['auth', 'is_admin'])->name('admin.')->prefix('admin')->namespace('Admin')->group(function(){

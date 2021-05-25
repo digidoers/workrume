@@ -58,6 +58,15 @@
                              <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                                 @csrf
                              </form>
+
+                             <a href="{{ route('update-profile.edit') }}" class="ml-3" >
+                             Update Profile
+                             </a>
+
+
+                        
+
+
                          @endguest
                         </div>
                     </div>
