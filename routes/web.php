@@ -11,7 +11,7 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/dashboard', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/workrume', [App\Http\Controllers\HomeController::class, 'show'])->name('homepage');
 // Route::resource("/dashboard","UserController");
 
