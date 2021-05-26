@@ -15,8 +15,13 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::get('/workrume', [App\Http\Controllers\HomeController::class, 'show'])->name('homepage');
 // Route::resource("/dashboard","UserController");
 
+// frontend update Profile
 Route::get("/update-profile", "UserController@updateProfile")->name('update-profile.edit');
 Route::put("/update-profile", "UserController@update")->name('update-profile.update');
+
+// frontend change password
+Route::get("/change-password", "UserController@changePassword")->name('change-password.edit');
+Route::post("/change-password", "UserController@updatePassword")->name('change-password.update');
 
 
 Route::middleware(['auth', 'is_admin'])->name('admin.')->prefix('admin')->namespace('Admin')->group(function(){

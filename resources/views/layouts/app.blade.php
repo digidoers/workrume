@@ -60,8 +60,12 @@
                              </form>
 
                              <a href="{{ route('update-profile.edit') }}" class="ml-3" >
-                             Update Profile
+                             Update-Profile
                              </a>
+                             <a href="{{ route('change-password.edit') }}" class="ml-3" >
+                             Change-Password
+                             </a>
+
 
 
                         

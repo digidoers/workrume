@@ -22,7 +22,7 @@
           <a href="{{ route('admin.update-profile.edit') }}" class="dropdown-item">
           <i class="fas fa-user-edit mr-2"></i>Profile
             
-          </a>
+          </a>                
           <div class="dropdown-divider"></div>
           <a href="{{ route('admin.change-password.edit') }}" class="dropdown-item">
           <i class="fas fa-lock-open mr-2"></i>Change-Password
