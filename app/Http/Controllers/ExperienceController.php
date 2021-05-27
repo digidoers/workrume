@@ -71,7 +71,7 @@ class ExperienceController extends Controller
     {
         $request->validate([
             'job_role' => 'required|min:2|max:50',
-            // 'job_description' => 'required|min:10|max:100',
+            'job_description' => 'required|min:10|max:100',
             'org_name' => 'required',
             'is_current_working' => 'required',
             'start_date' => 'required',

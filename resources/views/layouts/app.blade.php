@@ -68,10 +68,13 @@
                              <a href="{{ route('experience.index') }}" class="ml-3" >
                              Add-Experience
                              </a>
+                             <a href="{{ route('achievements.index') }}" class="ml-3" >
+                             Achievement
+                             </a>
+                             <a href="{{ route('education.index') }}" class="ml-3" >
+                             Education
+                             </a>
 
-
-
-                        
 
 
                          @endguest

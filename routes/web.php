@@ -25,6 +25,8 @@ Route::post("/change-password", "UserController@updatePassword")->name('change-p
 
 // experience Section
 Route::resource("/experience","ExperienceController"); 
+Route::resource("/achievements","AchievementController"); 
+Route::resource("/education","EducationController"); 
 
 
 
