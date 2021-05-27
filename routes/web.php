@@ -23,6 +23,10 @@ Route::put("/update-profile", "UserController@update")->name('update-profile.upd
 Route::get("/change-password", "UserController@changePassword")->name('change-password.edit');
 Route::post("/change-password", "UserController@updatePassword")->name('change-password.update');
 
+// experience Section
+Route::resource("/experience","ExperienceController"); 
+
+
 
 Route::middleware(['auth', 'is_admin'])->name('admin.')->prefix('admin')->namespace('Admin')->group(function(){
 

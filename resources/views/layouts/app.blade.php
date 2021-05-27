@@ -65,6 +65,9 @@
                              <a href="{{ route('change-password.edit') }}" class="ml-3" >
                              Change-Password
                              </a>
+                             <a href="{{ route('experience.index') }}" class="ml-3" >
+                             Add-Experience
+                             </a>
 
 
 
