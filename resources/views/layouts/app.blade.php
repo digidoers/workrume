@@ -51,7 +51,7 @@
                             <a href="{{ route('login') }}">Login</a>
                             @endif
                             @else
-                            <a href="{{ route('logout') }}"
+                            <a href="{{ route('logout') }}" class="btn btn-danger text-white"
                              onclick="event.preventDefault();
                              document.getElementById('logout-form').submit();">
                              {{ __('Logout') }} </a>
@@ -59,14 +59,8 @@
                                 @csrf
                              </form>
 
-                             <a href="{{ route('update-profile.edit') }}" class="ml-3" >
-                             Update-Profile
-                             </a>
-                             <a href="{{ route('change-password.edit') }}" class="ml-3" >
-                             Change-Password
-                             </a>
-                             <a href="{{ route('experience.index') }}" class="ml-3" >
-                             Add-Experience
+                             <a href="{{ route('change-password.edit') }}" class="ml-3 btn btn-primary text-white" >
+                             Change Password
                              </a>
                              <a href="{{ route('achievements.index') }}" class="ml-3" >
                              Achievement
@@ -83,32 +77,61 @@
                 </div>
                 <nav class="navbar navbar-expand-xl navbar-light p-0">
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                        <ul class="navbar-nav mr-auto justify-content-between align-items-start w-100">
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">Home</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">Job</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">Profile</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">About Us</a>
-                            </li>
-                            <li class="nav-item navbar-brand">
-                                <a class="nav-link" href="#"><img src="/img/logo.png" alt=""></a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">Connections</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">Messages</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">Notifications</a>
-                            </li>
-                        </ul>
+                        @guest
+							<ul class="navbar-nav mr-auto justify-content-between align-items-start w-100">
+								<li class="nav-item">
+									<a class="nav-link" href="#">Home</a>
+								</li>
+								<li class="nav-item">
+									<a class="nav-link" href="#">Job</a>
+								</li>
+								<li class="nav-item">
+									<a class="nav-link" href="#">Profile</a>
+								</li>
+								<li class="nav-item">
+									<a class="nav-link" href="#">About Us</a>
+								</li>
+								<li class="nav-item navbar-brand">
+									<a class="nav-link" href="#"><img src="/img/logo.png" alt=""></a>
+								</li>
+								<li class="nav-item">
+									<a class="nav-link" href="#">Connections</a>
+								</li>
+								<li class="nav-item">
+									<a class="nav-link" href="#">Messages</a>
+								</li>
+								<li class="nav-item">
+									<a class="nav-link" href="#">Notifications</a>
+								</li>
+							</ul>
+					    @else
+							<ul class="navbar-nav mr-auto justify-content-between align-items-start w-100">
+								<li class="nav-item">
+									<a class="nav-link" href="{{ route('home') }}">Home</a>
+								</li>
+								<li class="nav-item">
+									<a class="nav-link" href="#">Job</a>
+								</li>
+								<li class="nav-item">
+									<a class="nav-link" href="{{ route('user.profile') }}">Profile</a>
+								</li>
+								<li class="nav-item">
+									<a class="nav-link" href="#">About Us</a>
+								</li>
+								<li class="nav-item navbar-brand">
+									<a class="nav-link" href="#"><img src="/img/logo.png" alt=""></a>
+								</li>
+								<li class="nav-item">
+									<a class="nav-link" href="#">Connections</a>
+								</li>
+								<li class="nav-item">
+									<a class="nav-link" href="#">Messages</a>
+								</li>
+								<li class="nav-item">
+									<a class="nav-link" href="#">Notifications</a>
+								</li>
+							</ul>
+						@endguest	
                     </div>
                 </nav>
             </div>

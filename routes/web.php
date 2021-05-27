@@ -24,11 +24,17 @@ Route::get("/change-password", "UserController@changePassword")->name('change-pa
 Route::post("/change-password", "UserController@updatePassword")->name('change-password.update');
 
 // experience Section
+
 Route::resource("/experience","ExperienceController"); 
 Route::resource("/achievements","AchievementController"); 
 Route::resource("/education","EducationController"); 
 
+// Profile Section
+Route::get("/profile", "UserController@profile")->name('user.profile'); 
 
+// Post Section
+Route::get("/post", "PostController@create")->name('post.create'); 
+Route::post("/post", "PostController@store")->name('post.store'); 
 
 Route::middleware(['auth', 'is_admin'])->name('admin.')->prefix('admin')->namespace('Admin')->group(function(){
 
@@ -82,9 +88,5 @@ Route::name('admin.')->prefix('admin')->namespace('Admin')->group(function()
    // Admin Logout
 
    Route::post('logout', 'Auth\LoginController@logout')->name('logout');
-
-   
-  
-
 });
 
