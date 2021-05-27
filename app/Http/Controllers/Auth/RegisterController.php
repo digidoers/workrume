@@ -77,10 +77,10 @@ class RegisterController extends Controller
             'phone_no' => $data['phone_no'],
             'user_role' => $data['user_role'],
             'country' => $data['country'],
-            ]);
-            $interest = $data['interest'] ;
-            $user->topic()->sync($interest);
-            // dd($user);
-            return $user;
+        ]);
+		$interest = $data['interest'] ;
+		$user->topic()->sync($interest);
+		// dd($user);
+		return $user;
     }
 }

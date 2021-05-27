@@ -14,9 +14,14 @@ class UserController extends Controller
     private $routeName = "update-profile.";
     private $viewName = "update-profile.";
     
+	public function profile(){
+		$user = $user_experience = $user_achivements = $user_education = [];
+		$user = Auth::user();
+		return view('user.profile', compact('user', 'user_experience', 'user_achivements', 'user_education'));
+	}
+	
     public function updateProfile()
-
-    {
+	{
         $user = Auth::user();
         // dd($user);
         $routeName = $this->routeName;
@@ -50,34 +55,32 @@ class UserController extends Controller
 
 	public function changePassword()
 	{
-	return view('changepassword');
+		return view('changepassword');
 	}
 
 	public function updatePassword(Request $request)
-	{
-			
-	if (!(Hash::check($request->get('current-password'), Auth::user()->password))) {
-		// The passwords matches
-	return redirect()->back()->with("alert-danger","New Password cannot be same as your current password. Please choose a different password.");
-
-	}
+	{	
+		if (!(Hash::check($request->get('current-password'), Auth::user()->password))) {
+			// The passwords matches
+			return redirect()->back()->with("alert-danger","New Password cannot be same as your current password. Please choose a different password.");
+		}
 		
-	if(strcmp($request->get('current-password'), $request->get('password')) == 0){
-		//Current password and new password are same
-	return redirect()->back()->with("alert-danger","New Password cannot be same as your current password. Please choose a different password.");
-	}
+		if(strcmp($request->get('current-password'), $request->get('password')) == 0){
+			//Current password and new password are same
+			return redirect()->back()->with("alert-danger","New Password cannot be same as your current password. Please choose a different password.");
+		}
 
 		$request->validate([
-				'current-password' => 'required',
-				'password' => 'required|string|min:6|max:20',
-				'password_confirmation' => 'required|same:password|min:6|max:20',
+			'current-password' => 'required',
+			'password' => 'required|string|min:6|max:20',
+			'password_confirmation' => 'required|same:password|min:6|max:20',
 		]);
-	//Change Password
-	$user = Auth::user();
-	$user->password = bcrypt($request->get('password'));
-	$user->save();
-	$request->session()->flash('alert-success', trans('admin_message.update',['name'=>'User Password']));
-	return redirect()->route('change-password.edit');
+		//Change Password
+		$user = Auth::user();
+		$user->password = bcrypt($request->get('password'));
+		$user->save();
+		$request->session()->flash('alert-success', trans('admin_message.update',['name'=>'User Password']));
+		return redirect()->route('change-password.edit');
 
 	}
 }
