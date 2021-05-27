@@ -47,7 +47,7 @@ class ExperienceController extends Controller
         // dd(Auth::user());
         $id= Auth::user()->id;
         
-        dd($request->addmore);
+        // dd($request->addmore);
         foreach ($request->addmore as $key => $value) {
            
             $value['user_id'] = $id;
