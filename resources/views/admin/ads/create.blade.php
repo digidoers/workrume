@@ -6,104 +6,79 @@
 <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
     <!-- Content Header (Page header) -->
-    @include('admin.includes.breadcrumbs', ['title'=>$pageName, 'breadCrumbs'=>$breadCrumbs])
-
-
-
+   @include('admin.includes.breadcrumbs',  ['title'=>$pageName, 'breadCrumbs'=>$breadCrumbs])
     <!-- Main content -->
     <section class="content">
-    
+      <div class="container-fluid">
         <div class="row">
           <!-- left column --> 
           <div class="col-md-12">
             <!-- jquery validation -->
             <div class="card card-primary">
               <div class="card-header">
-                <h3 class="card-title">Edit Job </h3>
+                <h3 class="card-title">Register A New Advertisement </h3>
               </div>
               <!-- /.card-header -->
               <!-- form start -->
-              <form role="form" id="quickForm" action="{{ route($routeName.'update', $job->id) }}" method="POST" >
+              <form role="form" id="quickForm" action="{{ route($routeName.'store') }}" method="POST" >
               @csrf
-              @method('PUT')
                 <div class="card-body">
 
                 <div class="form-group">
-                    <label class = "require-input">Job Type</label>
-                    <input type="text" name="job_type" class="form-control"  placeholder="Enter Job Type" value="{{ old('job_type',$job->job_type)}}">
-                    @error('job_type')
+                    <label class = "require-input">Title</label>
+                    <input type="text" name="title" class="form-control"  placeholder="Enter Ad Title" value="{{ old('title')}}">
+                    @error('title')
                     <div class="custom-error">{{ $message }}</div>
                     @enderror
                   
                 </div>
+
+                <div class="form-group">
+                    <label class = "require-input">Content</label>
+                    <input type="text" name="content" class="form-control"  placeholder="Enter Content" value="{{ old('content')}}">
+                    @error('content')
+                    <div class="custom-error">{{ $message }}</div>
+                    @enderror
+                  
+                </div>
+
+                <div class="form-group">
+                    <label class = "require-input">Ad Type</label>
+                    <input type="text" name="ad_type" class="form-control" placeholder="Enter Type of Ad" value="{{ old('ad_type')}}">
+                  
+                    @error('ad_type')
+                    <div class="custom-error">{{ $message }}</div>
+                    @enderror
+                  
+                </div>
+
                 
                 <div class="form-group">
-                    <label class = "require-input">Role</label>
-                    <input type="text" name="role" class="form-control"  placeholder="Enter Role" value="{{ old('role',$job->role) }}">
-                    @error('role')
+                    <label class = "require-input">Position</label>
+
+                    <select  name="position" class="form-control" value="{{ old('position')}}">
+                    <option value="">Select Position</option>
+                    <option value="After Header" >After Header</option>
+                    <option value="Sidebar" >Sidebar</option>
+                    <option value="Before Footer" >Before Footer</option>
+                    </select>
+
+                    @error('position')
                     <div class="custom-error">{{ $message }}</div>
                     @enderror
-                  
+                   
+                   
                   </div>
-
-                  <div class="form-group">
-                    <label class = "require-input">Skills</label>
-                    <input type="text" name="skills" class="form-control" placeholder="Enter Skills" value="{{ old('skills', $job->skills)}}">
-                  
-                    @error('skills')
-                    <div class="custom-error">{{ $message }}</div>
-                    @enderror
-                  
-                  </div>
-
-                  <div class="form-group">
-                    <label class = "require-input">Description</label>
-                    <div class="mb-3">
-                    <textarea class="textarea"  name="description" placeholder="Enter description"
-                          style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;">{{ old('description', $job->description)}}</textarea>
-                    </div>
-                    @error('description')
-                    <div class="custom-error">{{ $message }}</div>
-                    @enderror
-                  
-                  </div>
-
-                  <div class="form-group">
-                    <label class = "require-input">Eligibility</label>
-                    <div class="mb-3">
-                    <textarea class="textarea"  name="eligibility" placeholder="Enter Eligibility"
-                          style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;">{{ old('eligibility', $job->eligibility)}}</textarea>
-                    </div>
-                    @error('eligibility')
-                    <div class="custom-error">{{ $message }}</div>
-                    @enderror
-                  
-                  </div>
-
-                  <div class="form-group">
-                    <label class = "require-input">Expire Date</label>
-                    <input type="date" name="expire_date" class="form-control"value="{{ old('expire_date', $job->expire_date)}}">
-                    @error('expire_date')
-                    <div class="custom-error">{{ $message }}</div>
-                    @enderror
-                  
-                </div>
-
-                 
                 </div> 
                 <!-- /.card-body -->
-                  <div class="card-footer"> 
+          <div class="card-footer"> 
                   <button type="submit" class="btn btn-primary">Submit</button>
                 </div>
               </form>
             </div> 
             <!-- /.card -->
             </div>
-          <!--/.col (left) -->
-          <!-- right column -->
-          <div class="col-md-6">
-
-          </div>
+         
           </div>
           <!--/.col (right) -->
         </div>
@@ -131,13 +106,9 @@ content: " *";
     $('.textarea').summernote()
   })
 </script>
-
 <script type="text/javascript">
 $(document).ready(function () {
-//   $.validator.setDefaults({
-//     submitHandler: function () {
-//       alert( "Form successful submitted!" );
-//     }
+  
   });
   $('#quickForm').validate({
     rules: {
@@ -155,7 +126,7 @@ $(document).ready(function () {
         required: true,
         minlength: 6,
       },
-      
+
     },
     messages: {
       email: {
@@ -184,3 +155,5 @@ $(document).ready(function () {
 </script>
 
 @endsection
+
+

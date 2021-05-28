@@ -26,10 +26,10 @@
 						<div class="alert alert-warning">Experience <div class="text-right"><a href="{{ route('experience.index')}}" class="btn btn-primary">Edit</a></div></div>
 					</div>
 					<div class="m-3">
-						<div class="alert alert-warning">Achievements <div class="text-right"><a class="btn btn-primary">Edit</a></div></div>
+						<div class="alert alert-warning">Achievements <div class="text-right"><a href="{{route('achievements.index')}}" class="btn btn-primary">Edit</a></div></div>
 					</div>
 					<div class="m-3">
-						<div class="alert alert-warning">Education <div class="text-right"><a class="btn btn-primary">Edit</a></div></div>
+						<div class="alert alert-warning">Education <div class="text-right"><a href="{{route('education.index')}}"class="btn btn-primary">Edit</a></div></div>
 					</div>
 					
 					<div class="m-3">

@@ -21,7 +21,7 @@
         <div class="col-lg-12 margin-tb">
             
             <div class="pull-right">
-                <a class="btn btn-success ml-3" href="{{ route($routeName.'create') }}" > Create New Job</a>
+                <a class="btn btn-success ml-3" href="{{ route($routeName.'create') }}" > Create New Advertisement</a>
             </div>
             <br>
         </div>
@@ -47,34 +47,29 @@
                   <thead>
                   <tr>
                     <th>No.</th>
-                    <th>Job Type</th>
-                    <th>Role</th>
-                    <th>Description</th>
-                    <th>Eligibility</th>
-                    <th>Skills</th>
-                    <th>Expire Date</th>
+                    <th>Title</th>
+                    <th>Content</th>
+                    <th>Ad Type</th>
+                    <th>Position</th>
+                   
                    
                     <th data-orderable="false">Action</th>
                   </tr>
                   </thead>
                   <tbody>
-                  @foreach ($job as $job)
+                  @foreach ($ad as $ads)
                 
                   
                   <tr>
                     <td>{{$i++}}</td>
-                    <td>{{$job->job_type}} </td>
-                    <td>{{$job->role}} </td>
-                    <td>{!!$job->description!!}</td>
-                    <td>{!!$job->eligibility!!}</td>
-                    <td>{{$job->skills}}</td>
-                    <td>{{$job->expire_date}}</td>
-                    
-                    
+                    <td>{{$ads->title}} </td>
+                    <td>{{$ads->content}} </td>
+                    <td>{!!$ads->ad_type!!}</td>
+                    <td>{!!$ads->position!!}</td>
                   
                     <td>
-                    <form onsubmit="return confirm('Are you sure?')" action="{{ route($routeName.'destroy',$job->id) }}" method="POST">
-                    <a class="btn btn-info" title="Edit" href="{{ route($routeName.'edit',$job->id) }}">Edit</a> 
+                    <form onsubmit="return confirm('Are you sure?')" action="{{ route($routeName.'destroy',$ads->id) }}" method="POST">
+                    <a class="btn btn-info" title="Edit" href="{{ route($routeName.'edit',$ads->id) }}">Edit</a> 
                     @csrf
                     @method('DELETE')      
                     <button type="submit" class="btn btn-danger" title="Delete">Delete</button>

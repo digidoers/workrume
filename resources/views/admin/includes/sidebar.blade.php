@@ -175,10 +175,36 @@
                   <p>Create New Topic</p>
                 </a>
               </li>
-            </ul>
-          </li>
+              </li>
           </ul>
 
+
+
+              <li class="nav-item has-treeview {{ (in_array(request()->route()->getName(), ['admin.ads.index', 'admin.ads.create']))?'menu-open':'' }}">
+            <a href="#" class="nav-link {{ (in_array(request()->route()->getName(), ['admin.ads.index', 'admin.ads.create']))?'active':'' }}">
+          <i class="nav-icon fas fa-ad"></i>
+              
+              <p>
+               Advertisement
+                <i class="fas fa-angle-left right"></i>
+                <!-- <span class="badge badge-info right">6</span> -->
+              </p>
+            </a>
+            <ul class="nav nav-treeview {{ (in_array(request()->route()->getName(), ['admin.ads.index', 'admin.ads.create']))?'menu-open':'' }}" style="display:{{ (in_array(request()->route()->getName(), ['admin.ads.index','admin.ads.create']))?'block':'none' }};">
+              <li class="nav-item">
+                <a href="{{ route('admin.ads.index') }}" class="nav-link {{ (in_array(request()->route()->getName(), ['admin.ads.index']))?'active':'' }}">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Ad List</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="{{ route('admin.ads.create') }}" class="nav-link {{ (in_array(request()->route()->getName(), ['admin.ads.create']))?'active':'' }}">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Create New Ad</p>
+                </a>
+              </li>
+            </ul>
+         
       </nav>
       <!-- /.sidebar-menu -->
     </div>
