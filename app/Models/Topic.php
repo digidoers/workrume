@@ -19,4 +19,9 @@ class Topic extends Model
     {
         return $this->belongsToMany(User::class);
     }
+	
+	public function posts()
+    {
+        return $this->belongsToMany(Posts::class);
+    }
 }

@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Models\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
@@ -76,10 +77,14 @@ class UserController extends Controller
        
        
         $data = $request->all();
-        $interest = $data['interest'] ;
-       
+        $interest = ($data['interest']) ?? '';	
+		$data['password'] = Hash::make($data['password']);
         $user = User::create($data);
-        $user->topic()->sync($interest);
+        
+		if (!empty($interest)) {
+			$user->topic()->sync($interest);
+		}
+		
         $request->session()->flash('alert-success', trans('admin_message.create',['name'=>'User']));
         return redirect()->route($this->routeName.'index')->with('message', 'IT WORKS!');;
                         
@@ -104,9 +109,12 @@ class UserController extends Controller
             'country' => 'required'
         ]);
         $data = $request->all();
-        $interest = $data['interest'] ;
+        $interest = ($data['interest']) ?? '';
         $user->update($data);
-        $user->topic()->sync($interest);
+		
+		if (!empty($interest)) { 
+			$user->topic()->sync($interest);
+		}
         $request->session()->flash('alert-success', trans('admin_message.update',['name'=>'User']));
         return redirect()->route($this->routeName.'index');
     }

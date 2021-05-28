@@ -78,8 +78,10 @@ class RegisterController extends Controller
             'user_role' => $data['user_role'],
             'country' => $data['country'],
         ]);
-		$interest = $data['interest'] ;
-		$user->topic()->sync($interest);
+		$interest = ($data['interest']) ?? '';
+		if (!empty($interest)) {
+			$user->topic()->sync($interest);
+		}
 		// dd($user);
 		return $user;
     }
