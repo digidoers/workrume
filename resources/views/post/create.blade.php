@@ -14,60 +14,90 @@
           <div class="col-md-12">
             <!-- jquery validation -->
             <div class="card card-primary">
-              <div class="card-header">
-                <h3 class="card-title">Create Post </h3>
-              </div>
-              <!-- /.card-header -->
-              <!-- form start -->
-              <form role="form" action="{{ route('post.store') }}" method="POST" >
-              @csrf
-                <div   id="dynamicTable">
-
-                <div class="form-group">
-                    <label class = "require-input">Title</label>
-                    <input type="text" name="post_title" class="form-control"  placeholder="Title" value="{{ old('post_title')}}">
-                    @error('post_title')
-                    <div class="custom-error">{{ $message }}</div>
-                    @enderror
-                  
-                </div>
-
-                <div class="form-group">
-                    <label class = "require-input">Description</label>
-                    <input type="text" name="post_description" class="form-control" placeholder="Description" value="{{ old('post_description')}}">
-                  
-                    @error('post_description')
-                    <div class="custom-error">{{ $message }}</div>
-                    @enderror
-                  
-                </div>
-
-                <div class="form-group">
-					<label class = "require-input">Choose Image</label>
-					<input type="file" name="post_image" value="" class="form-control">
-				  
+				<div class="card-header">
+					<h3 class="card-title">Create Post </h3>
 				</div>
-				
-				<div class="form-group">
-					<label class = "require-input">Choose Video</label>
-					<input type="file" name="post_video" value="" class="form-control">  
-				</div>
+				<!-- /.card-header -->
+				<!-- form start -->
+				<form role="form" action="{{ route('post.store') }}" method="POST" enctype="multipart/form-data">
+				@csrf
+					<div id="dynamicTable">
 
-                <div class="form-group">
-                    <label class = "require-input">Interest</label>
-                    <?php $topic = topics(); ?> 
+						<div class="form-group">
+							<label class = "require-input">Title *</label>
+							<input type="text" name="name" class="form-control"  placeholder="Title" value="{{ old('name')}}">
+							@error('name')
+							<div class="custom-error">{{ $message }}</div>
+							@enderror
+						  
+						</div>
 
-                    <select id="interest" name="interest[]" multiple class="form-control">	
-						@foreach($topic as $key => $value)
-							<option value="{{$key}}">{{$value}}</option>
-						@endforeach
-					</select>	
-                    @error('interest')
-						<div class="custom-error">{{ $message }}</div>
-                    @enderror
-				</div>
+						<div class="form-group">
+							<label class = "require-input">Description *</label>
+							<input type="text" name="description" class="form-control" placeholder="Description" value="{{ old('description')}}">
+						  
+							@error('description')
+							<div class="custom-error">{{ $message }}</div>
+							@enderror
+						  
+						</div>
 
-                </div> 
+						<div class="form-group">
+							<label>Choose Image</label>
+							<input type="file" name="post_image" value="" class="form-control">
+						  
+						</div>
+						
+						<div class="form-group">
+							<label>Choose Video</label>
+							<input type="file" name="post_video" value="" class="form-control">  
+						</div>
+
+						<div class="form-group">
+							<label class="form-control">Interest</label>
+							<?php $topic = topics(); ?> 
+
+							<select id="interest" name="interest[]" multiple class="form-control">	
+								@foreach($topic as $key => $value)
+									<option value="{{$key}}">{{$value}}</option>
+								@endforeach
+							</select>	
+							@error('interest')
+								<div class="custom-error">{{ $message }}</div>
+							@enderror
+						</div>
+						
+						<div class="form-group">
+							<label class = "require-input">Post Type</label>
+
+							<select id="is_public" name="is_public" class="form-control">
+								<option value="1">Public</option>
+								<option value="0">Private</option>
+							</select>
+						</div>
+						
+						<div class="form-group">
+							<label>Publish To Group</label>
+
+							<select id="is_publish_group" name="is_publish_group" class="form-control">
+								<option value="1">Yes</option>
+								<option selected value="0">No</option>
+							</select>
+						</div>
+						<div class="form-group choose_group d-none">
+							<label>Choose Group</label>
+							<?php $groups = user_groups(); ?> 
+
+							<select id="group" name="group_id" class="form-control">
+								<option value="">Choose Group</option>							
+								@if (!empty($groups)) 
+									@foreach($groups as $group_id => $group_name)
+										<option value="{{ $group_id }}">{{ $group_name }}</option>
+									@endforeach
+								@endif	
+							</select>
+						</div>
+					</div> 
                
                 <!-- /.card-body -->
             
@@ -102,5 +132,14 @@ $(document).ready(function() {
 		nonSelectedText: 'Select Your Interest'				
 	});
 });
+
+$(document).on('change', '#is_publish_group', function() {
+	if ($(this).val() == 1) {
+		$('.choose_group').removeClass('d-none');
+	}
+	else {
+		$('.choose_group').removeClass('d-none').addClass('d-none');
+	}
+})
 </script>
 @endsection

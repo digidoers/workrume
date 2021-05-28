@@ -46,9 +46,11 @@ class UserController extends Controller
 
         $data = $request->all();
         // dd($data);
-        $interest = $data['interest'] ;
+        $interest = ($data['interest']) ?? '' ;
         $user->update($data);
-        $user->topic()->sync($interest);
+		if(!empty($interest)) {
+			$user->topic()->sync($interest);
+		}
 		$request->session()->flash('alert-success', trans('admin_message.update',['name'=>'User']));
         return redirect()->route($this->routeName.'edit');
     }
