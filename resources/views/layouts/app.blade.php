@@ -10,7 +10,7 @@
     <title>{{ config('app.name', 'Laravel') }}</title>
 
     <!-- Scripts -->
-    <!-- <script src="{{ asset('js/app.js') }}" defer></script> -->
+    <script src="{{ asset('js/app.js') }}"></script>
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -19,14 +19,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
     
-    
-    
-    <style type="text/css">
-        .dropdown-toggle{
-            height: 33.99px;
-            width: 346.39px !important;
-        }
-    </style>
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
@@ -44,34 +36,43 @@
                                 <i class="fa fa-bars" aria-hidden="true"></i>
                             </button>
                             @guest
-                            @if (Route::has('login'))
-                            <a href="{{ route('register') }}">Register</a>
-                            @endif
-                            @if (Route::has('register'))
-                            <a href="{{ route('login') }}">Login</a>
-                            @endif
-                            @else
-                            <a href="{{ route('logout') }}" class="btn btn-danger text-white"
-                             onclick="event.preventDefault();
-                             document.getElementById('logout-form').submit();">
-                             {{ __('Logout') }} </a>
-                             <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                                @csrf
-                             </form>
+                                @if (Route::has('login'))
+                                <a href="{{ route('register') }}">Register</a>
+                                @endif
 
-                             <a href="{{ route('change-password.edit') }}" class="ml-3 btn btn-primary text-white" >
-                             Change Password
-                             </a>
-                             <a href="{{ route('achievements.index') }}" class="ml-3" >
-                             Achievement
-                             </a>
-                             <a href="{{ route('education.index') }}" class="ml-3" >
-                             Education
-                             </a>
+                                @if (Route::has('register'))
+                                <a href="{{ route('login') }}">Login</a>
+                                @endif
 
+                                @else
 
-
-                         @endguest
+                                <ul class="navbar-nav">
+                                    <li class="nav-item dropdown">
+                                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            <img class="profile_img" src="{{ url('/').'/img/author_default.png'}}">
+                                            <span class="me">Andrew Tie</span>
+                                        </a>
+                                        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                            <a href="{{ route('logout') }}" class="dropdown-item"
+                                            onclick="event.preventDefault();
+                                            document.getElementById('logout-form').submit();">
+                                            {{ __('Logout') }} </a>
+                                            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                                @csrf
+                                            </form>
+                                            <a href="{{ route('change-password.edit') }}" class="dropdown-item">
+                                                Change Password
+                                            </a>
+                                            <a href="{{ route('achievements.index') }}" class="dropdown-item">
+                                                Achievement
+                                            </a>
+                                            <a href="{{ route('education.index') }}" class="dropdown-item">
+                                                Education
+                                            </a>
+                                        </div>
+                                    </li>   
+                                </ul>
+                            @endguest
                         </div>
                     </div>
                 </div>
@@ -179,5 +180,14 @@
     </div>
 
     @yield('script')
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-multiselect/0.9.13/js/bootstrap-multiselect.js"></script>
+<script>
+$(document).ready(function() {
+    $('#interest').multiselect({
+        nonSelectedText: 'Select Your Interest'
+    });
+});
+</script>
 </body>
 </html>

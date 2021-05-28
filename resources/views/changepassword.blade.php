@@ -14,50 +14,56 @@
           <!-- left column --> 
           <div class="col-md-12">
             <!-- jquery validation -->
-            <div class="card card-primary">
-              <div class="card-header">
-                <h3 class="card-title">Change Password </h3>
+            <div class="login_box">
+              <div class="login_header">
+                Change Password
               </div>
               <!-- /.card-header -->
               <!-- form start -->
-              <form id="form-change-password" role="form" method="POST" action="{{ route('change-password.update')}}" novalidate class="form-horizontal">
-  <div class="col-md-9">             
-    <label for="current-password" class="col-sm-4 control-label">Current Password</label>
-    <div class="col-sm-8">
-      <div class="form-group">
-        <input type="hidden" name="_token" value="{{ csrf_token() }}"> 
-        <input type="password" class="form-control" id="current-password" name="current-password" placeholder="Password">
-        @error('current-password')
-         <div class="custom-error">{{ $message }}</div>
-        @enderror
-      </div>
-    </div>
-    <label for="password" class="col-sm-4 control-label">New Password</label>
-    <div class="col-sm-8">
-      <div class="form-group">
-        <input type="password" class="form-control" id="password" name="password" placeholder="Password">
-        @error('password')
-         <div class="custom-error">{{ $message }}</div>
-        @enderror
-      </div>
+              <div class="login_body">
+                <form id="form-change-password" role="form" method="POST" action="{{ route('change-password.update')}}" novalidate class="form-horizontal">
+                  <div class="row">             
+                    <!-- <label for="current-password" class="col-sm-4 control-label">Current Password</label> -->
+                    <div class="col-12">
+                      <div class="form-group">
+                        <input type="hidden" name="_token" value="{{ csrf_token() }}"> 
+                        <input type="password" class="form-control" id="current-password" name="current-password" placeholder="Current Password">
+                        @error('current-password')
+                        <div class="custom-error">{{ $message }}</div>
+                        @enderror
+                      </div>
+                    </div>
+                    <!-- <label for="password" class="col-sm-4 control-label">New Password</label> -->
+                    <div class="col-12">
+                      <div class="form-group">
+                        <input type="password" class="form-control" id="password" name="password" placeholder="New Password">
+                        @error('password')
+                        <div class="custom-error">{{ $message }}</div>
+                        @enderror
+                      </div>
 
-    </div>
-    <label for="password_confirmation" class="col-sm-4 control-label">Re-enter Password</label>
-    <div class="col-sm-8">
-      <div class="form-group">
-        <input type="password" class="form-control" id="password_confirmation" name="password_confirmation" placeholder="Re-enter Password">
-        @error('password_confirmation')
-         <div class="custom-error">{{ $message }}</div>
-        @enderror
-      </div>
-    </div>
-  </div>
-  <div class="form-group">
-    <div class="col-sm-offset-5 col-sm-6">
-      <button type="submit" class="btn-primary">Submit</button>
-    </div>
-  </div>
-</form>
+                    </div>
+                    <!-- <label for="password_confirmation" class="col-sm-4 control-label">Re-enter Password</label> -->
+                    <div class="col-12">
+                      <div class="form-group">
+                        <input type="password" class="form-control" id="password_confirmation" name="password_confirmation" placeholder="Re-enter Password">
+                        @error('password_confirmation')
+                        <div class="custom-error">{{ $message }}</div>
+                        @enderror
+                      </div>
+                    </div>
+
+                    <div class="col-12">
+                      <div class="form-group row mb-0">
+                        <div class="col-12">
+                          <button type="submit" class="btn btn-primary">Submit</button>
+                        </div>
+                      </div>
+                    </div>
+
+                  </div>
+                </form>
+              </div>
             </div> 
             <!-- /.card -->
             </div>

@@ -111,18 +111,20 @@
 
                   <div class="form-group">
                     <label class = "require-input">Interest</label>
-                    <?php
-                    $topic = topics();
-                    ?> 
+                    <div class="multiselect">
+                      <?php
+                      $topic = topics();
+                      ?> 
 
-                    <select id="interest" name="interest[]" multiple class="form-control">	
-                    					    @foreach($topic as $key => $value)
-                                    <option value="{{$key}}">{{$value}}</option>
-                                  @endforeach
-                                </select>	
-                    @error('interest')
-                    <div class="custom-error">{{ $message }}</div>
-                    @enderror
+                      <select id="interest" name="interest[]" multiple class="form-control">	
+                                    @foreach($topic as $key => $value)
+                                      <option value="{{$key}}">{{$value}}</option>
+                                    @endforeach
+                                  </select>	
+                      @error('interest')
+                      <div class="custom-error">{{ $message }}</div>
+                      @enderror
+                    </div>
                     </div>
 
 
@@ -162,12 +164,12 @@ content: " *";
 <script src="{{ url('admin_assets/plugins/jquery-validation/additional-methods.min.js')}}"></script>
 
 
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+<!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-multiselect/0.9.13/css/bootstrap-multiselect.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-multiselect/0.9.13/js/bootstrap-multiselect.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-multiselect/0.9.13/js/bootstrap-multiselect.js"></script> -->
 
 <script type="text/javascript">
 $(document).ready(function () {
