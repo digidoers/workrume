@@ -16,4 +16,23 @@ function topics()
     $topic = App\Models\Topic::get()->pluck('name');
     return $topic;
 }
+
+function user_groups() {
+	$user_id = Auth::user()->id;
+	$groups = App\Models\Groups::where('user_id', $user_id)->get()->pluck('name');
+    return $groups;
+}
+
+function uploadMedia($media_data, $directory_path = 'image') {
+	try {
+		$filename = time() . '.' . $media_data->extension();
+		$save_path = storage_path('app/public') . '/'.$directory_path.'/' .$filename;	
+		$media_data->move($save_path);
+		
+		return '/storage/' . $directory_path . '/' . $filename;
+	}catch (Exception $e) {
+		dd($e);
+		return [];
+	}
+}
 ?>
