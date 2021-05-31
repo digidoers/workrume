@@ -14,5 +14,13 @@ class Posts extends Model
 	public function topic()
     {
         return $this->belongsToMany(Topic::class);
+
     }
+
+
+    // public function user()
+    // {
+    //     return $this->belongsTo(User::class);
+    // }
 }
+

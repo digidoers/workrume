@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use DB;
-use App\Models\Posts;
+use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 
 class HomeController extends Controller
@@ -27,9 +27,7 @@ class HomeController extends Controller
     public function index()
     {
 		$user = Auth::user();	
-        $post = Posts::get()->first()->where('user_id', Auth::user()->id);
-        // dd($post);
-        return view('home', compact('user', 'post'));
+        return view('home', compact('user'));
     }
 
     public function post()
