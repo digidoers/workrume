@@ -66,6 +66,8 @@ class JobController extends Controller
             'skills' => 'required',
             'description' => 'required',
             'eligibility' =>'required',
+            'job_type' =>'required',
+            'expire_date' => 'required'
             
         ]);
         $data = $request->all();
@@ -90,6 +92,8 @@ class JobController extends Controller
             'skills' => 'required',
             'description' => 'required',
             'eligibility' =>'required',
+            'job_type' =>'required',
+            'expire_date' => 'required'
         ]);
         $data = $request->all();
         $job->update($data);

@@ -25,6 +25,15 @@
                 <div class="card-body">
 
                 <div class="form-group">
+                    <label class = "require-input">Job Type</label>
+                    <input type="text" name="job_type" class="form-control"  placeholder="Enter Job Type" value="{{ old('job_type')}}">
+                    @error('job_type')
+                    <div class="custom-error">{{ $message }}</div>
+                    @enderror
+                  
+                </div>
+
+                <div class="form-group">
                     <label class = "require-input">Role</label>
                     <input type="text" name="role" class="form-control"  placeholder="Enter Role" value="{{ old('role')}}">
                     @error('role')
@@ -61,6 +70,15 @@
                           style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;">{{ old('eligibility')}}</textarea>
                     </div>
                     @error('eligibility')
+                    <div class="custom-error">{{ $message }}</div>
+                    @enderror
+                  
+                </div>
+
+                <div class="form-group">
+                    <label class = "require-input">Expire Date</label>
+                    <input type="date" name="expire_date" class="form-control"value="{{ old('expire_date')}}">
+                    @error('expire_date')
                     <div class="custom-error">{{ $message }}</div>
                     @enderror
                   

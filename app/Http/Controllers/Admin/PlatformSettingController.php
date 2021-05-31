@@ -57,10 +57,11 @@ class PlatformSettingController extends Controller
     {
         $data = $request->all();
         // dd($data);
-        foreach($data['setting'] as $id => $values)
-            {
-                PlatformSetting::where('id',$id)->update(['input_value'=>$values]);
+        if (!empty($data['setting'])) {
+            foreach ($data['setting'] as $id => $values) {
+                PlatformSetting::where('id', $id)->update(['input_value'=>$values]);
             }
+        }
         $request->session()->flash('alert-success', trans('admin_message.update',['name'=>'Website-Settings']));
         return redirect()->route($this->routeName.'edit');
       }
