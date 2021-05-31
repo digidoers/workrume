@@ -5,7 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-12">
             <div class="login_box register">
-                <div class="login_header">{{ __('Register') }}</div>
+                <h1 class="login_header">{{ __('Register') }}</h1>
 
                 <div class="login_body">
                     <form method="POST" action="{{ route('register') }}" id="framework_form">
