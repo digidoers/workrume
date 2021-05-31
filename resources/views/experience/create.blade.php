@@ -24,7 +24,7 @@
                 <div   id="dynamicTable">
 
                 <div class="form-group">
-                    <label class = "require-input">Job Role</label>
+                    <label class="require-input">Job Role</label>
                     <input type="text" name="addmore[0][job_role]" class="form-control"  placeholder="Enter Your Role" value="{{ old('job_role')}}">
                     @error('job_role')
                     <div class="custom-error">{{ $message }}</div>
@@ -81,7 +81,7 @@
 
                 </div> 
 
-                <div><button type="button" name="add" id="add" class="btn btn-success">Add More</button> 
+                <!--<div><button type="button" name="add" id="add" class="btn btn-success">Add More</button> -->
             </div>   
                
                 <!-- /.card-body -->

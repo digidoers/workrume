@@ -5,7 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-12">
             <div class="login_box">
-                <div class="login_header">{{ __('Reset Password') }}</div>
+                <h1 class="login_header">{{ __('Reset Password') }}</h1>
 
                 <div class="login_body">
                     @if (session('status'))
@@ -14,7 +14,7 @@
                         </div>
                     @endif
 
-                    <form method="POST" action="{{ route('password.email') }}">
+                    <form method="POST" action="{{ route('password.email') }}" novalidate>
                         @csrf
 
                         <div class="form-group row">

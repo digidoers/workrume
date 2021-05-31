@@ -5,7 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-12">
             <div class="login_box">
-                <div class="login_header">{{ __('Confirm Password') }}</div>
+                <h1 class="login_header">{{ __('Confirm Password') }}</h1>
 
                 <div class="login_body">
                     {{ __('Please confirm your password before continuing.') }}

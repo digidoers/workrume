@@ -56,7 +56,7 @@ class ExperienceController extends Controller
         }
        
         $request->session()->flash('alert-success', trans('admin_message.create',['name'=>'Experience']));
-        return redirect()->route($this->routeName.'index')->with('message', 'IT WORKS!');;
+        return redirect()->route('user.profile')->with('message', 'IT WORKS!');
                         
     }
 
@@ -82,7 +82,7 @@ class ExperienceController extends Controller
         $experience->update($data);
         
         $request->session()->flash('alert-success', trans('admin_message.update',['name'=>'Experience']));
-        return redirect()->route($this->routeName.'index');
+        return redirect()->route('user.profile');
     }
 
    
@@ -90,6 +90,6 @@ class ExperienceController extends Controller
     {
             $experience->forceDelete();
             $request->session()->flash('alert-success', trans('admin_message.delete',['name'=>'Experience']));
-        return redirect()->route($this->routeName.'index');
+        return redirect()->route('user.profile');
     }
 }

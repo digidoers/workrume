@@ -31,44 +31,37 @@
                         <div class="logo_mobile text-center">
                             <a href="#"><img src="/img/logo.png" alt=""></a>
                         </div>
-                        <div class="d-flex justify-content-end right_menu">
+                        <div class="right_menu">
                             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                                 <i class="fa fa-bars" aria-hidden="true"></i>
                             </button>
                             @guest
-                                @if (Route::has('login'))
-                                <a href="{{ route('register') }}">Register</a>
-                                @endif
-
-                                @if (Route::has('register'))
-                                <a href="{{ route('login') }}">Login</a>
-                                @endif
-
                                 @else
 
                                 <ul class="navbar-nav">
                                     <li class="nav-item dropdown">
                                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                             <img class="profile_img" src="{{ url('/').'/img/author_default.png'}}">
-                                            <span class="me">Andrew Tie</span>
+                                            <span class="me">{{ Auth::User()->name }}</span>
                                         </a>
                                         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                                            <a href="{{ route('logout') }}" class="dropdown-item"
+                                            
+                                            <a href="{{ route('change-password.edit') }}" class="dropdown-item">
+                                                Change Password
+                                            </a>
+                                           <!-- <a href="{{ route('achievements.index') }}" class="dropdown-item">
+                                                Achievement
+                                            </a>
+                                            <a href="{{ route('education.index') }}" class="dropdown-item">
+                                                Education
+                                            </a>-->
+											<a href="{{ route('logout') }}" class="dropdown-item"
                                             onclick="event.preventDefault();
                                             document.getElementById('logout-form').submit();">
                                             {{ __('Logout') }} </a>
                                             <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                                                 @csrf
                                             </form>
-                                            <a href="{{ route('change-password.edit') }}" class="dropdown-item">
-                                                Change Password
-                                            </a>
-                                            <a href="{{ route('achievements.index') }}" class="dropdown-item">
-                                                Achievement
-                                            </a>
-                                            <a href="{{ route('education.index') }}" class="dropdown-item">
-                                                Education
-                                            </a>
                                         </div>
                                     </li>   
                                 </ul>
@@ -90,7 +83,7 @@
 									<a class="nav-link" href="#">Profile</a>
 								</li>
 								<li class="nav-item">
-									<a class="nav-link" href="#">About Us</a>
+									<a class="nav-link" href="#">Messages</a>
 								</li>
 								<li class="nav-item navbar-brand">
 									<a class="nav-link" href="#"><img src="/img/logo.png" alt=""></a>
@@ -99,10 +92,10 @@
 									<a class="nav-link" href="#">Connections</a>
 								</li>
 								<li class="nav-item">
-									<a class="nav-link" href="#">Messages</a>
-								</li>
-								<li class="nav-item">
 									<a class="nav-link" href="#">Notifications</a>
+								</li>
+                                <li class="nav-item">
+									<a class="nav-link" href="{{ route('login') }}">Signin</a>
 								</li>
 							</ul>
 					    @else
@@ -117,7 +110,7 @@
 									<a class="nav-link" href="{{ route('user.profile') }}">Profile</a>
 								</li>
 								<li class="nav-item">
-									<a class="nav-link" href="#">About Us</a>
+									<a class="nav-link" href="#">Messages</a>
 								</li>
 								<li class="nav-item navbar-brand">
 									<a class="nav-link" href="#"><img src="/img/logo.png" alt=""></a>
@@ -126,10 +119,36 @@
 									<a class="nav-link" href="#">Connections</a>
 								</li>
 								<li class="nav-item">
-									<a class="nav-link" href="#">Messages</a>
-								</li>
-								<li class="nav-item">
 									<a class="nav-link" href="#">Notifications</a>
+								</li>
+								<li class="nav-item hidden-m">
+                                    <ul class="navbar-nav">
+                                        <li class="nav-item dropdown">
+                                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                <img class="profile_img" src="{{ url('/').'/img/author_default.png'}}">
+                                                <span class="me">Andrew Tie</span>
+                                            </a>
+                                            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                                
+                                                <a href="{{ route('change-password.edit') }}" class="dropdown-item">
+                                                    Change Password
+                                                </a>
+                                                <a href="{{ route('achievements.index') }}" class="dropdown-item">
+                                                    Achievement
+                                                </a>
+                                                <a href="{{ route('education.index') }}" class="dropdown-item">
+                                                    Education
+                                                </a>
+												<a href="{{ route('logout') }}" class="dropdown-item"
+                                                onclick="event.preventDefault();
+                                                document.getElementById('logout-form').submit();">
+                                                {{ __('Logout') }} </a>
+                                                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                                    @csrf
+                                                </form>
+                                            </div>
+                                        </li>   
+                                    </ul>
 								</li>
 							</ul>
 						@endguest	

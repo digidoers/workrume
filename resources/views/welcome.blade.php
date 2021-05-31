@@ -5,16 +5,16 @@
     <div class="row justify-content-center">
         <div class="col-12">
             <div class="login_box">
-                <div class="login_header">{{ __('Login') }}</div>
+                <h1 class="login_header">{{ __('Login') }}</h1>
 
                 <div class="login_body">
-                    <form method="POST" action="{{ route('login') }}">
+                    <form method="POST" action="{{ route('login') }}" novalidate="false">
                         @csrf
 
                         <div class="form-group row">
                             <!-- <label for="email" class="col-12">{{ __('E-Mail Address') }}</label> -->
                             <div class="col-12">
-                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" placeholder="{{ __('E-Mail Address') }}" autofocus>
+                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" placeholder="{{ __('Email') }}" autofocus>
                                 @error('email')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -57,7 +57,8 @@
                                     {{ __('Login') }}
                                 </button>
                             </div>
-                        </div>
+                        </div>                        
+                        <div class="join-now">New to Workrume? <a href="{{ route('register') }}">Join now</a></div>
                     </form>
                 </div>
             </div>

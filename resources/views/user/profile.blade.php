@@ -15,8 +15,7 @@
 						<img class="profile_img" src="{{ url('/').'/img/author_default.png'}}">						 
 						<a href="{{ route('update-profile.edit')}}" class="update_profile"><i class="fa fa-pencil" aria-hidden="true"></i></a>
 					</div>
-
-					<div class="d-lg-flex justify-content-between">
+                    <div class="d-lg-flex justify-content-between">
 						<div class="personal_info">
 							<h3 class="profile_name">{{ $user->name }}</h3>
 							<h5>Frontend Developer at Wipro Limited</h5>
@@ -52,6 +51,7 @@
 					<div class="m-3">
 						<div class="alert alert-warning">Interest <div class="text-right"><a class="btn btn-primary">Edit</a></div></div>
 					</div>
+                    </div>
                 </div>
             </div>
             
@@ -121,7 +121,7 @@
                 <div class="card-body profile_info experience">
                     <div class="head_part">
                         <h3 class="card_heading">Experience</h3>
-                        <a href="{{ route('experience.index')}}" class="edit_pen">
+                        <a href="{{ route('experience.create')}}" class="edit_pen">
                             <img src="{{ url('/').'/img/add-icon.svg'}}">
                         </a>
                     </div>

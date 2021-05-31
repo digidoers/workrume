@@ -10964,7 +10964,7 @@ body {
 }
 
 main {
-  min-height: calc(100vh - 360px);
+  min-height: calc(100vh - 310px);
   padding: 70px 0;
 }
 
@@ -11265,24 +11265,25 @@ a.user_name {
 a.user_name:hover{
   color: #f05023;
 }
-header .right_menu ul.navbar-nav a.dropdown-toggle {
+li.nav-item ul.navbar-nav a.dropdown-toggle {
   line-height: normal;
-  padding: 0;
+  padding: 0 !important;
   display: flex;
   align-items: center;
   font-weight: 600;
+  margin-top: -8px;
 }
-header .right_menu ul.navbar-nav img.profile_img {
+li.nav-item ul.navbar-nav img.profile_img {
   width: 30px;
   height: 30px;
   border: none;
   margin: 0 5px 0 0;
   display: inline-block;
 }
-header .right_menu ul.navbar-nav a.dropdown-item{
+li.nav-item ul.navbar-nav a.dropdown-item{
   margin: 0;
 }
-header .right_menu ul.navbar-nav a.dropdown-item:hover, header .right_menu ul.navbar-nav a.dropdown-item:focus {
+li.nav-item ul.navbar-nav a.dropdown-item:hover, li.nav-item ul.navbar-nav a.dropdown-item:focus {
   background: none;
 }
 .create_post .user_img {
@@ -11737,7 +11738,20 @@ select.form-control {
   background: #fff;
   color: #f05023;
 }
-
+.join-now {
+  text-align: center;
+  margin-top: 30px;
+  font-weight: 600;
+}
+.join-now a {
+  color: #f05023;
+}
+.join-now a:hover {
+  text-decoration: underline;
+}
+.right_menu{
+  display: none;
+}
 
 
 
@@ -11775,8 +11789,7 @@ select.form-control {
     color: #88898c;
     border-color: #d8d8d8;
     font-size: 21px;
-    padding: 0 10px;
-    margin-right: 20px;
+    padding: 7px 12px;
   }
 
   header .right_menu {
@@ -11803,6 +11816,36 @@ select.form-control {
     color: #282828 !important;
     font-weight: 400;
     border-top: 1px solid #d6d6d6;
+  }
+  .right_menu{
+    display: flex;
+    justify-content: flex-end;
+  }
+  .hidden-m{
+    display: none;
+  }
+  .right_menu ul.navbar-nav {
+    margin: 4px 0 0 20px;
+}
+  .right_menu ul.navbar-nav a.dropdown-toggle {
+    line-height: normal;
+    padding: 0 !important;
+    display: flex;
+    align-items: center;
+    font-weight: 600;
+  }
+  .right_menu ul.navbar-nav img.profile_img {
+    width: 30px;
+    height: 30px;
+    border: none;
+    margin: 0 5px 0 0;
+    display: inline-block;
+  }
+  .right_menu ul.navbar-nav a.dropdown-item{
+    margin: 0;
+  }
+  .right_menu ul.navbar-nav a.dropdown-item:hover, .right_menu ul.navbar-nav a.dropdown-item:focus {
+    background: none;
   }
 }
 
