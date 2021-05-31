@@ -24,7 +24,7 @@
 					<div id="dynamicTable">
 
 						<div class="form-group">
-							<label class = "require-input">Title *</label>
+							<label class = "require-input">Title</label>
 							<input type="text" name="name" class="form-control"  placeholder="Title" value="{{ old('name')}}">
 							@error('name')
 							<div class="custom-error">{{ $message }}</div>
@@ -33,7 +33,7 @@
 						</div>
 
 						<div class="form-group">
-							<label class = "require-input">Description *</label>
+							<label class = "require-input">Description</label>
 							<input type="text" name="description" class="form-control" placeholder="Description" value="{{ old('description')}}">
 						  
 							@error('description')
@@ -45,16 +45,21 @@
 						<div class="form-group">
 							<label>Choose Image</label>
 							<input type="file" name="post_image" value="" class="form-control">
-						  
+							@error('post_image')
+							<div class="custom-error">{{ $message }}</div>
+							@enderror
 						</div>
 						
 						<div class="form-group">
 							<label>Choose Video</label>
-							<input type="file" name="post_video" value="" class="form-control">  
+							<input type="file" name="post_video" value="" class="form-control"> 
+							@error('post_video')
+							<div class="custom-error">{{ $message }}</div>
+							@enderror 
 						</div>
 
 						<div class="form-group">
-							<label class="form-control">Interest</label>
+							<label>Interest</label>
 							<?php $topic = topics(); ?> 
 
 							<select id="interest" name="interest[]" multiple class="form-control">	
@@ -120,6 +125,14 @@
 @endsection 
 
 @section('script')
+
+<style>.require-input:after {
+font-weight: bold;
+color: red;
+content: " *";
+}</style>
+
+
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-multiselect/0.9.13/css/bootstrap-multiselect.css">

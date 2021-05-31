@@ -36,6 +36,10 @@ Route::get("/profile", "UserController@profile")->name('user.profile');
 Route::get("/post", "PostController@create")->name('post.create'); 
 Route::post("/post", "PostController@store")->name('post.store'); 
 
+// User Profile Section
+Route::get("/user-profile", "UserProfileController@create")->name('user-profile.create'); 
+Route::post("/user-profile", "UserProfileController@store")->name('user-profile.store'); 
+
 Route::middleware(['auth', 'is_admin'])->name('admin.')->prefix('admin')->namespace('Admin')->group(function(){
 
     //user Routes
