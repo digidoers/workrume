@@ -6,28 +6,24 @@
     <!-- Content Header (Page header) -->
    
     <!-- Main content -->
-
-    <div class="row">
-        <div class="col-lg-12 margin-tb">
-            
-            <div class="pull-right">
-                <a class="btn btn-success ml-3" href="{{ route($routeName.'create') }}" > Create Achievement</a>
-            </div>
-            <br>
-        </div>
+    <div class="container">
+      <div class="row">
+          <div class="col-lg-12 margin-tb">
+              
+              <div class="pull-right">
+                  <a class="btn btn-success ml-3" href="{{ route($routeName.'create') }}" > Create Achievement</a>
+              </div>
+              <br>
+          </div>
+      </div>
     </div>
-   
 
-
-
-
-    <section class="content">
-      <div class="container-fluid">
+    <section class="content mt-4">
+      <div class="container">
       @include('admin.includes.flashmessage')
         <div class="row">
           <div class="col-12">
-            <div class="card">
-              
+            <div class="card">              
               <div class="card-body">
                 <table id="example2" class="table table-bordered table-hover">
                   <thead>

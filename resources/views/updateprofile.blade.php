@@ -6,7 +6,7 @@
     <div class="content-wrapper">
  <!-- Main content -->
     <section class="content">
-      <div class="container-fluid">
+      <div class="container">
 
       @include('admin.includes.flashmessage')
         <div class="row">
