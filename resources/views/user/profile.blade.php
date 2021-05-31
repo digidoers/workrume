@@ -15,7 +15,6 @@
 						<img class="profile_img" src="{{ url('/').'/img/author_default.png'}}">						 
 						<a href="{{ route('update-profile.edit')}}" class="update_profile"><i class="fa fa-pencil" aria-hidden="true"></i></a>
 					</div>
-<<<<<<< HEAD
 
 					<div class="d-lg-flex justify-content-between">
 						<div class="personal_info">
@@ -29,7 +28,6 @@
                                 <li><a href="#"><i class="fa fa-graduation-cap" aria-hidden="true"></i>Harvard University</a></li>
                             </ul>
                         </div>
-=======
 					
 					<div class="m-3">
 						<div class="profile_name">{{ $user->name }}</div>
@@ -53,7 +51,6 @@
 					
 					<div class="m-3">
 						<div class="alert alert-warning">Interest <div class="text-right"><a class="btn btn-primary">Edit</a></div></div>
->>>>>>> ce4c47dac141cacdfe111d128415c4ca16efb796
 					</div>
                 </div>
             </div>

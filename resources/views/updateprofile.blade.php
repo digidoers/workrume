@@ -55,14 +55,7 @@
                     <div class="custom-error">{{ $message }}</div>
                     @enderror</div>
 
-                    <div class="form-group">
-                    <label class = "require-input">Status</label>
-                    <select  name="status" class="form-control" >
-                    <option value="0" {{$user->status==0?'selected':''}}>Inactive</option>
-                    <option value="1" {{$user->status==1?'selected':''}}>Active</option>
-                   
-                    </select>
-                  </div>
+                  
 
                   <div class="form-group">
                     <label class = "require-input">Phone No</label>
@@ -127,6 +120,26 @@
                     </div>
                     </div>
 
+                    <div class="form-group">
+                    <label class = "require-input">Write Your Headline</label>
+                    <input type="text" name="headline" class="form-control"  placeholder="Enter Your Profile Headline Which represents You" value="{{ old('headline',$user->headline) }}">
+                    @error('headline')
+                    <div class="custom-error">{{ $message }}</div>
+                    @enderror
+                  
+                  </div>
+
+
+                <div class="form-group">
+                    <label class = "require-input">About You</label>
+                    <textarea class="textarea"  name="about" placeholder="Write Something about yourself"
+                          style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;">{{ old('about')}}</textarea>
+                    @error('about')
+                    <div class="custom-error">{{ $message }}</div>
+                    @enderror
+                  
+                  </div>
+
 
 
                  
@@ -159,6 +172,13 @@ font-weight: bold;
 color: red;
 content: " *";
 }</style>
+
+<script>
+  $(function () {
+    // Summernote
+    $('.textarea').summernote()
+  })
+</script>
 <!-- jquery-validation -->
 <script src="{{ url('admin_assets/plugins/jquery-validation/jquery.validate.min.js')}}"></script>
 <script src="{{ url('admin_assets/plugins/jquery-validation/additional-methods.min.js')}}"></script>

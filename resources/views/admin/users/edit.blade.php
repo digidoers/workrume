@@ -51,14 +51,14 @@
                   </div>
 
 
-                  <div class="form-group">
+                  <!-- <div class="form-group">
                     <label class = "require-input">Status</label>
                     <select  name="status" class="form-control" >
                     <option value="0" {{$user->status==0?'selected':''}}>Inactive</option>
                     <option value="1" {{$user->status==1?'selected':''}}>Active</option>
                    
                     </select>
-                  </div>
+                  </div> -->
                    
                   <div class="form-group">
                     <label class = "require-input">Date Of Birth</label>

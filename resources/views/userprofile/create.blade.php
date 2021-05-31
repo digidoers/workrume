@@ -40,7 +40,7 @@
 						</div>
 						
 						<div class="form-group">
-							<label>Choose Video</label>
+							<label>Choose Profile Banner</label>
 							<input type="file" name="profile_banner" value="" class="form-control">  
 						</div>
 

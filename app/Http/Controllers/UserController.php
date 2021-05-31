@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Models\UserProfile;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 
@@ -17,6 +18,8 @@ class UserController extends Controller
 	public function profile(){
 		$user = $user_experience = $user_achivements = $user_education = [];
 		$user = Auth::user();
+		// $user_profile = UserProfile::get()->first()->where('user_id', $user->id);
+		// // dd($user_profile);
 		return view('user.profile', compact('user', 'user_experience', 'user_achivements', 'user_education'));
 	}
 	
@@ -41,11 +44,17 @@ class UserController extends Controller
             'phone_no' => 'required|integer|min:10',
             'user_role' => 'required',
             'country' => 'required',
-            'interest' => 'required'
+            'interest' => 'required',
+			'about' => 'required|min:20|max:100',
+			'headline' => 'required'
         ]);
 
         $data = $request->all();
-        // dd($data);
+        //  dd($data);
+		UserProfile::where('user_id', $user->id)->update([
+			'about' => $request->about,
+			'headline' => $request->headline
+		]);
         $interest = ($data['interest']) ?? '' ;
         $user->update($data);
 		if(!empty($interest)) {
