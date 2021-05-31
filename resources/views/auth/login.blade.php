@@ -58,12 +58,7 @@
                                 </button>
                             </div>
                         </div>
-						
-						<div class="form-group row mb-0 mt-2">
-                            <div class="col-md-12 text-center">
-								New to Workrume? <a class="site_color" href="{{ route('register') }}"><strong>Sign Up</strong></a>
-                            </div>
-                        </div>
+                        <div class="join-now">New to Workrume? <a href="{{ route('register') }}">Join now</a></div>
                     </form>
                 </div>
             </div>
