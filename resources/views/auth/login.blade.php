@@ -58,6 +58,7 @@
                                 </button>
                             </div>
                         </div>
+                        <div class="join-now">New to Workrume? <a href="{{ route('register') }}">Join now</a></div>
                     </form>
                 </div>
             </div>
