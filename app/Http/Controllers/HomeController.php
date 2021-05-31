@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use DB;
+use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 
 class HomeController extends Controller
@@ -29,9 +30,10 @@ class HomeController extends Controller
         return view('home', compact('user'));
     }
 
-    public function show()
+    public function post()
     {
-        return view('homepage');
+       //
+       
     }
 
     
