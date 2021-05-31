@@ -97,7 +97,7 @@
                 <div class="card-body profile_info experience">
                     <div class="head_part">
                         <h3 class="card_heading">Experience</h3>
-                        <a href="{{ route('experience.index')}}" class="edit_pen">
+                        <a href="{{ route('experience.create')}}" class="edit_pen">
                             <img src="{{ url('/').'/img/add-icon.svg'}}">
                         </a>
                     </div>

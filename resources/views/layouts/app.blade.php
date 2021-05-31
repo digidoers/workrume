@@ -36,12 +36,12 @@
                                 <i class="fa fa-bars" aria-hidden="true"></i>
                             </button>
                             @guest
-                                @if (Route::has('login'))
+                                @if (Route::has('register'))
                                 <a href="{{ route('register') }}">Register</a>
                                 @endif
 
-                                @if (Route::has('register'))
-                                <a href="{{ route('login') }}">Login</a>
+                                @if (Route::has('login'))
+									<a href="{{ route('login') }}">Login</a>
                                 @endif
 
                                 @else
@@ -50,25 +50,26 @@
                                     <li class="nav-item dropdown">
                                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                             <img class="profile_img" src="{{ url('/').'/img/author_default.png'}}">
-                                            <span class="me">Andrew Tie</span>
+                                            <span class="me">{{ Auth::User()->name }}</span>
                                         </a>
                                         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                                            <a href="{{ route('logout') }}" class="dropdown-item"
+                                            
+                                            <a href="{{ route('change-password.edit') }}" class="dropdown-item">
+                                                Change Password
+                                            </a>
+                                           <!-- <a href="{{ route('achievements.index') }}" class="dropdown-item">
+                                                Achievement
+                                            </a>
+                                            <a href="{{ route('education.index') }}" class="dropdown-item">
+                                                Education
+                                            </a>-->
+											<a href="{{ route('logout') }}" class="dropdown-item"
                                             onclick="event.preventDefault();
                                             document.getElementById('logout-form').submit();">
                                             {{ __('Logout') }} </a>
                                             <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                                                 @csrf
                                             </form>
-                                            <a href="{{ route('change-password.edit') }}" class="dropdown-item">
-                                                Change Password
-                                            </a>
-                                            <a href="{{ route('achievements.index') }}" class="dropdown-item">
-                                                Achievement
-                                            </a>
-                                            <a href="{{ route('education.index') }}" class="dropdown-item">
-                                                Education
-                                            </a>
                                         </div>
                                     </li>   
                                 </ul>
