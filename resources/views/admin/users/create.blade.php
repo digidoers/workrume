@@ -43,7 +43,7 @@
                   </div>
 
 
-                  <div class="form-group">
+                  <!-- <div class="form-group">
                     <label class = "require-input">Status</label>
 
                     <select  name="status" class="form-control" value="{{ old('status')}}">
@@ -53,7 +53,7 @@
                    
                    
                   </div>
-                   
+                    -->
                   <div class="form-group">
                     <label class = "require-input">Date Of Birth</label>
                     <input type="date" name="dob" class="form-control" value="{{ old('dob')}}" >

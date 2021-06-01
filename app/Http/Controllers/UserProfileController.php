@@ -38,5 +38,6 @@ class UserProfileController extends Controller
 			$data['profile_banner'] = $profile_banner;
 			$savedData = \App\Models\UserProfile::create($data);
 			
+			return redirect()->back();
     }
 }

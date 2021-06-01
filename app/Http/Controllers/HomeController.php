@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use DB;
 use App\Models\User;
+use App\Models\Posts;
 use Illuminate\Support\Facades\Auth;
 
 class HomeController extends Controller
@@ -16,7 +17,7 @@ class HomeController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth');
+        //$this->middleware('auth');
     }
 
     /**
@@ -27,7 +28,11 @@ class HomeController extends Controller
     public function index()
     {
 		$user = Auth::user();	
-        return view('home', compact('user'));
+        $id = Auth::user()->id;
+        // dd($id);
+        $user_post = User::where('id', $id)->get();
+        // dd($user_post->topic());
+        return view('home', compact('user', 'user_post'));
     }
 
     public function post()
@@ -36,6 +41,13 @@ class HomeController extends Controller
        
     }
 
-    
-
+	public function welcome() {
+		if (!empty(Auth::user())) {
+			return redirect()->route('home');
+		}
+		else {
+			return redirect()->route('login');
+		}
+	}
+	
 }

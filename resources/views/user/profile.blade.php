@@ -29,6 +29,30 @@
                                 <li><a href="#"><i class="fa fa-graduation-cap" aria-hidden="true"></i>Harvard University</a></li>
                             </ul>
                         </div>
+					
+					<div class="m-3">
+						<div class="profile_name">{{ $user->name }}</div>
+						<div><strong>About - </strong> <span></span></div>
+						<div><strong>School/College - </strong> <span></span></div>
+						<div><strong>Working Place - </strong> <span></span></div>
+						<div><strong>Contact Details - </strong> <span>{{ $user->email }}</span></div>
+					</div>
+					<div class="m-3">
+						<div class="alert alert-warning">Activities</div>
+					</div>
+					<div class="m-3">
+						<div class="alert alert-warning">Experience <div class="text-right"><a href="{{ route('experience.index')}}" class="btn btn-primary">Edit</a></div></div>
+					</div>
+					<div class="m-3">
+						<div class="alert alert-warning">Achievements <div class="text-right"><a href="{{route('achievements.index')}}" class="btn btn-primary">Edit</a></div></div>
+					</div>
+					<div class="m-3">
+						<div class="alert alert-warning">Education <div class="text-right"><a href="{{route('education.index')}}"class="btn btn-primary">Edit</a></div></div>
+					</div>
+					
+					<div class="m-3">
+						<div class="alert alert-warning">Interest <div class="text-right"><a class="btn btn-primary">Edit</a></div></div>
+					</div>
                     </div>
                 </div>
             </div>
@@ -99,7 +123,7 @@
                 <div class="card-body profile_info experience">
                     <div class="head_part">
                         <h3 class="card_heading">Experience</h3>
-                        <a href="{{ route('experience.index')}}" class="edit_pen">
+                        <a href="{{ route('experience.create')}}" class="edit_pen">
                             <img src="{{ url('/').'/img/add-icon.svg'}}">
                         </a>
                     </div>
