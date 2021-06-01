@@ -9,12 +9,14 @@
                 <div class="card-body">
                     <div class="my_profile">
 						<div class="update_cover">
-							<a href="#"><i class="fa fa-camera" aria-hidden="true"></i></a>
+							<button type="button" class="btn" data-toggle="modal" data-target="#exampleModal">
+                                <i class="fa fa-camera" aria-hidden="true"></i>
+                            </button>
 							<img class="cover_img" src="{{ url('/').'/img/pngtree-colorful.jpg'}}">
 						</div>
 						<img class="profile_img" src="{{ url('/').'/img/author_default.png'}}">						 
 						<a href="{{ route('update-profile.edit')}}" class="update_profile"><i class="fa fa-pencil" aria-hidden="true"></i></a>
-					</div>
+					</div>                    
                     <div class="d-lg-flex justify-content-between">
 						<div class="personal_info">
 							<h3 class="profile_name">{{ $user->name }}</h3>
@@ -345,6 +347,28 @@
     </div>
 </div>
 @endsection
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+
 <style>
 @media (min-width: 1350px){
     .min-w-300 {

@@ -11448,7 +11448,7 @@ ul.sidebar li a.create {
 .update_cover{
   position: relative;
 }
-.update_cover>a {
+.update_cover>button.btn {
   position: absolute;
   background: #fff;
   width: 32px;
